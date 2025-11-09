@@ -2,13 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 
 console.log("MONGO_URI:", process.env.MONGO_URI);
 
 const app = express();
-
 
 app.use(express.json());
 app.use(cors());
@@ -86,8 +86,13 @@ app.delete("/api/notes/:id", async (req, res) => {
   res.json({ message: "Note deleted" });
 });
 
-// ===== Serve Frontend (public folder) =====
-app.use(express.static("public"));
+// ===== Serve Frontend (root folder) =====
+app.use(express.static(__dirname));
+
+// Route for root (index.html)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // ===== Start Server =====
 const PORT = process.env.PORT || 5000;

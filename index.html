@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planify+</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- ===== Calendar Section ===== -->
+    <section class="calendar-section">
+      <div class="calendar-header">
+        <button id="prevMonth" class="nav-btn">&lt;</button>
+        <h2 id="monthYear"></h2>
+        <button id="nextMonth" class="nav-btn">&gt;</button>
+      </div>
+      <table id="calendar">
+        <thead>
+          <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+            <th>Thu</th><th>Fri</th><th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
+    </section>
+
+    <!-- ===== Task Manager Section ===== -->
+    <section class="side-panel">
+      <div class="tasks-container">
+        <h3>Tasks for <span id="selectedDateLabel">--</span></h3>
+        <div class="task-input">
+          <input type="text" id="taskInput" placeholder="Add a new task..." />
+          <button id="addTaskBtn">+</button>
+        </div>
+        <ul id="taskList"></ul>
+      </div>
+    </section>
+
+    <!-- ===== Notes Section ===== -->
+<section class="notes-panel">
+  <div class="notes-container">
+    <!-- Date Notes -->
+    <div class="date-notes-box">
+      <h3>Notes for <span id="dateNotesLabel">--</span></h3>
+      <textarea id="dateNoteArea" placeholder="Write your note for this date..."></textarea>
+    </div>
+
+    <!-- General Notes -->
+    <div class="general-notes-box">
+      <div class="notes-header">
+        <h3>My Notes</h3>
+        <button id="addNewNote" class="add-note-btn">+ Add</button>
+      </div>
+      <div id="notesContainer" class="notes-grid"></div>
+    </div>
+  </div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
